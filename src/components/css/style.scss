@@ -1,0 +1,84 @@
+/* app imports */
+@import "../../common/css/variables.scss";
+@import "../../common/css/mixins.scss";
+@import "./list-item-styles.scss";
+
+.container {
+  overflow: hidden;
+  margin-top: 100px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 15px;
+  background: #eee;
+  &:last-child {
+    margin-bottom: 100px;
+  }
+  .info {
+    line-height: 1.4rem;
+    font-size: 0.85rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@mixin brandItem {
+  /* this is just for styling */
+  .brandItem {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: normal;
+    .image,
+    span {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.fixedThreeByThreeGrid {
+  padding: 100px 50px calc(100px - 15px) 50px !important;
+  ul {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 300px);
+    @include brandItem();
+  }
+}
+
+.flexibleThreeByThreeLayout {
+  padding: 100px 50px calc(100px - 15px) 50px !important;
+  ul {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    @include brandItem();
+  }
+}
+
+.autoFillColumnsAutoRows {
+  padding: 100px 50px calc(100px - 15px) 50px !important;
+  ul {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: auto;
+    @include brandItem();
+  }
+}
+
+.responsiveRowsWithFrUnits {
+  padding: 100px 50px calc(100px - 15px) 50px !important;
+  ul {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1.5fr 1.5fr 1fr;
+    @include brandItem();
+  }
+}
